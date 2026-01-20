@@ -1,7 +1,7 @@
 // imports
-const express = require("express") //importing express package
-const app = express() // creates a express application
-const dotenv = require("dotenv").config() //this allows me to use my .env values in this file
+const express = require("express") 
+const app = express() 
+const dotenv = require("dotenv").config() 
 const mongoose = require("mongoose")
 const morgan = require('morgan')
 const authController = require("./controllers/auth.js");
@@ -26,17 +26,7 @@ app.use(
 app.use(passUserToView)
 
 
-
-
-
-
-
-
-
-
-
-
-async function connectToDB(){ //connection to the database
+async function connectToDB(){ 
     try{
         await mongoose.connect(process.env.MONGODB_URI)
         console.log("Connected to Database")
@@ -46,36 +36,15 @@ async function connectToDB(){ //connection to the database
     }
 }
 
-
-connectToDB() // connect to database
-
-
-
-
-
-
-
-
-
-
-
-
-
+connectToDB() 
 
 // Routes go here
 app.use('/auth',authController)
 app.use('/',indexController)
 
-
 // PROTECTED ROUTES:
 app.use(isSignedIn)
 // Everything under the user NEEDS to be logged in to se
-
-
-
-
-
-
 
 app.listen(3000,()=>{
     console.log('App is working')
