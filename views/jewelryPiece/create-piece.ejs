@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New</title>
+</head>
+<body>
+    <h1>Create a new Jewelry Piece</h1>
+    <form action="/jewelry/new" method="post">
+        <label for="designer">Brand Name</label>
+        <select name="designer" id="designer">
+             <% allDesigners.forEach((oneDesigner)=>{ %>
+                <option value="<%= oneDesigner._id %>"> <%= oneDesigner.brandName %> </option>
+            <% }) %>
+        </select>
+        
+        <br><br>
+
+        <label for="name">Item Name</label>
+        <input type="text" name="name">
+        <br><br>
+
+        <label for="category">Category</label>
+        <input type="text" name="category">
+        <br><br>
+
+        <label for="description">Description</label>
+        <input type="text" name="description">
+        <br><br>
+
+        <label for="material">Material</label>
+        <input type="text" name="material">
+        <br><br>
+
+        <label for="price">Price</label>
+        <input type="number" name="price">
+        <br><br>
+        
+        <label for="imageUrl">Image URL</label>
+        <input type="text" name="imageUrl">
+        <br><br>
+
+        <button>Create</button>
+    </form>
+</body>
+</html>

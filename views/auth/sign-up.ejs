@@ -9,12 +9,30 @@
     <%- include('../navbar') %>
     <h1>Create a new account!</h1>
     <form action="/auth/sign-up" method="post">
-      <label for="username">Username:</label>
-      <input type="text" name="username" id="username" />
+      <label for="email">Email:</label>
+      <input type="text" name="email" id="email" />
+      <br> <br>
+
       <label for="password">Password:</label>
       <input type="password" name="password" id="password" />
+      <br> <br>
+
       <label for="confirmPassword">Confirm Password:</label>
       <input type="password" name="confirmPassword" id="confirmPassword" />
+      <br> <br>
+
+      <label for="brandName">Brand Name:</label>
+      <input type="text" name="brandName" id="brandName" />
+      <br> <br>
+
+      <label for="about">Company Bio:</label>
+      <input type="text" name="about" id="about" />
+      <br> <br>
+
+      <label for="logoUrl">Logo URL:</label>
+      <input type="text" name="logoUrl" id="logoUrl" />
+      <br> <br>
+
       <button type="submit">Sign up</button>
     </form>
   </body>
