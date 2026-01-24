@@ -17,4 +17,9 @@ router.post('/new', async(req,res)=>{
     res.redirect('/jewelry')
 })
 
+router.get('/:id', async (req, res) => {
+ const onePiece = await JewelryPiece.findById(req.params.id)
+ res.render('jewelryPiece/jewelry-details.ejs', { onePiece: onePiece })
+})
+
 module.exports = router;

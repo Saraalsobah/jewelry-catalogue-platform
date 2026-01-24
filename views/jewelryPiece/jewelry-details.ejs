@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1><%= onePiece.name %></h1>
-    <img src="<%= onePiece.imageUrl %>" alt="image of <%= onePiece.name %> style="width: 200px; height: auto; border-radius: 8px;">
+    <img src="<%= onePiece.imageUrl %>" alt="image of <%= onePiece.name %>" style="width: 200px; height: auto; border-radius: 8px;">
     <h5>Category:</h5>
     <p><%= onePiece.category %></p>
     <p><%= onePiece.description %></p>
@@ -16,6 +16,9 @@
     <h5>Price:</h5>
     <p><%= onePiece.price %></p>
     <a href="jewelry/new/">Update Item</a>
+    <form action="/jewelry/delete/<%= onePiece._id %>" method="post">
+            <button type="submit">Delete</button>
+    </form>
 
 </body>
 </html>
