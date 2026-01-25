@@ -34,4 +34,9 @@ router.post('/update/:id', async (req, res) => {
  res.redirect('/jewelry')
 })
 
+router.post('/delete/:id', async(req,res)=>{
+    const deletedPiece = await JewelryPiece.findByIdAndDelete(req.params.id)
+    res.redirect('/jewelry')    
+})
+
 module.exports = router;
