@@ -6,11 +6,14 @@
     <title>All Jewelry Pieces</title>
 </head>
 <body>
+    <%- include('../navbar') %>
+    
     <h1>All Jewelry Pieces</h1>
     <% allPieces.forEach((onePiece)=>{ %>
         <h3><%= onePiece.name %></h3>
         <img src="<%= onePiece.imageUrl %>" alt="image of <%= onePiece.name %>" style="width: 200px; height: auto; border-radius: 8px;">
         <h5>Designer: <%= onePiece.designer.brandName %></h5>
+        <h5>Price: <%= onePiece.price %></h5>
         <a href="jewelry/<%=onePiece._id%>">View details</a>
         <br>
     <% }) %>
