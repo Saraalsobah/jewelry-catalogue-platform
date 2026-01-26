@@ -16,10 +16,13 @@
     <p><%= onePiece.material %></p>
     <h5>Price:</h5>
     <p><%= onePiece.price %></p>
-    <a href="/jewelry/update/<%= onePiece._id %>">Update Item</a>
-    <form action="/jewelry/delete/<%= onePiece._id %>" method="post">
+    <% if(user) { %>
+        <a href="/jewelry/update/<%= onePiece._id %>">Update Item</a>
+        <form action="/jewelry/delete/<%= onePiece._id %>" method="post">
             <button type="submit">Delete</button>
-    </form>
+        </form>
+    <% } %>
+    
 
 </body>
 </html>
