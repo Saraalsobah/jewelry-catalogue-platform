@@ -7,5 +7,11 @@ router.get('/', async (req, res) => {
     res.render('brand/all-brands.ejs', { allDesigners:allDesigners })
 })
 
+router.get('/:id', async (req,res)=>{
+    const oneDesigner = await User.findById(req.params.id)
+    const brandPieces = await JewelryPiece.find({ designer: oneDesigner._id })
+    res.render('brand/brand-details.ejs',{oneDesigner:oneDesigner, brandPieces:brandPieces} )
+})
+
 
 module.exports = router;
