@@ -11,12 +11,10 @@
     <h1>All Jewelry Pieces</h1>
     <% allPieces.forEach((onePiece)=>{ %>
         <h3><%= onePiece.name %></h3>
-        <img src="<%= onePiece.imageUrl %>" alt="image of <%= onePiece.name %>" style="width: 200px; height: auto; border-radius: 8px;">
+        <img src="<%= onePiece.imageUrl %>" alt="image of <%= onePiece.name %>">
         <h5>Designer: <%= onePiece.designer.brandName %></h5>
         <h5>Price: <%= onePiece.price %></h5>
-        <% if(user) { %>
-            <a href="jewelry/<%=onePiece._id%>">View details</a>
-        <% } %>
+        <a href="jewelry/<%=onePiece._id%>">View details</a>
         <br>
     <% }) %>
 </body>

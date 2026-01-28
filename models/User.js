@@ -10,10 +10,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  confirmPassword: {
-    type: String,
-    required: true,
-  },
   brandName: {
     type: String,
     required: true,
