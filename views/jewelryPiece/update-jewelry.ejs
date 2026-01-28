@@ -10,12 +10,7 @@
 
     <h1>Update <%= onePiece.name %></h1>
     <form action="/jewelry/update/<%= onePiece._id %>" method="post">
-        <label for="designer">Brand Name</label>
-        <select name="designer" id="designer">
-             <% allDesigners.forEach((oneDesigner)=>{ %>
-                <option value="<%= oneDesigner._id %>"> <%= oneDesigner.brandName %> </option>
-            <% }) %>
-        </select>
+        <p><b>Brand:</b> <%= user.brandName %></p>
         
         <br><br>
 

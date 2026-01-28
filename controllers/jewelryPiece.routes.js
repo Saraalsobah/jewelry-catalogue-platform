@@ -14,28 +14,46 @@ router.get('/new', isSignedIn, async(req,res)=>{
 })
 
 router.post('/new', isSignedIn, async(req,res)=>{
+    req.body.designer = req.session.user._id
     createdPiece = await JewelryPiece.create(req.body)
     res.redirect('/jewelry')
 })
 
 router.get('/:id', async (req, res) => {
- const onePiece = await JewelryPiece.findById(req.params.id)
- res.render('jewelryPiece/jewelry-details.ejs', { onePiece:onePiece })
+    const onePiece = await JewelryPiece.findById(req.params.id).populate('designer')
+    res.render('jewelryPiece/jewelry-details.ejs', { onePiece:onePiece })
 })
+
 
 router.get('/update/:id', isSignedIn, async (req, res) => {
- const onePiece = await JewelryPiece.findById(req.params.id)
- const allDesigners = await User.find()
- res.render('jewelryPiece/update-jewelry.ejs', { onePiece:onePiece, allDesigners:allDesigners })
+    const onePiece = await JewelryPiece.findById(req.params.id)
+
+    if(req.session.user._id !== onePiece.designer.toString()){
+        return res.send('You Cannot edit Pieces that are not yours')
+    }
+    res.render('jewelryPiece/update-jewelry.ejs', { onePiece:onePiece})
 })
+
 
 router.post('/update/:id', isSignedIn, async (req, res) => {
- const updatedPiece = await JewelryPiece.findByIdAndUpdate(req.params.id, req.body)
- res.redirect('/jewelry')
+    const onePiece = await JewelryPiece.findById(req.params.id)
+
+    if (req.session.user._id !== onePiece.designer.toString()){
+       return res.send('You Cannot edit Pieces that are not yours')
+    }
+
+    const updatedPiece = await JewelryPiece.findByIdAndUpdate(req.params.id, req.body)
+    res.redirect('/jewelry')
 })
 
+
 router.post('/delete/:id', isSignedIn, async(req,res)=>{
-    const deletedPiece = await JewelryPiece.findByIdAndDelete(req.params.id)
+    const deletedPiece = await JewelryPiece.findById(req.params.id)
+
+    if (req.session.user._id !== deletedPiece.designer.toString()){
+        return res.send('Cannot delete Pieces that are not yours')
+    }
+    await JewelryPiece.findByIdAndDelete(req.params.id)
     res.redirect('/jewelry')    
 })
 
