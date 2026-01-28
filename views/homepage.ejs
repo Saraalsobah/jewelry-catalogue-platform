@@ -8,18 +8,27 @@
 <body>
     <%- include('navbar') %>
     <h1>Pearl Vault</h1>
-    <h3>A catalogue showcasing handcrafted pearl jewelry created by local Bahraini brands.</h3>
+    <h3>Browse through the catalogue and discover the beauty of handcrafted pearls from Bahrain's finest local designers.</h3>
     <a href="/jewelry">Explore Jewelry</a>
     <section>
-        <h4>About the Platform</h4>
-        <p>Inspired by Bahrain's pearl heritage, Pearl Vault brings local jewelry brands together in one place, allowing designers to showcase their collections while visitors explore unique pearl pieces.</p>
-    </section>
-    <section>
-        <h4>For Jewelry Brands</h4>
-        <p>Are you a jewelry brand or designer? Create an account to add, manage, and showcase your pearl jewelry collection.</p>
-        <a href="/auth/sign-up">Create an Account</a>
+        <h4>About Pearl Vault</h4>
+        <p>Inspired by the rich pearling history of our island, this platform brings Bahrain's local jewelry brands together in a single space where designers can share their work and visitors can find unique pearl pieces.</p>
     </section>
 
+    <% if(!user) {%>
+        <section>
+            <h4>For Designers</h4>
+            <p>Are you a local brand or designer? Create an account to list your jewelry pieces in our catalogue.</p>
+            <a href="/auth/sign-up">Create an Account</a>
+        </section>
+    <% } else {%>
+        <section>
+        <h4>Welcome, <%= user.brandName %></h4>
+        <p>You can add new pieces to the vault or manage your existing collection below.</p>
+        <a href="/jewelry/new">Add New Jewelry</a>
+        <a href="/jewelry">Manage My Pieces</a>
+        </section>
+    <% } %>
     
 </body>
 </html>
