@@ -8,16 +8,10 @@
 <body>
     <%- include('../navbar') %>
     <h1>Create a new Jewelry Piece</h1>
-    <form action="/jewelry/new" method="post">
-        <label for="designer">Brand Name</label>
-        <select name="designer" id="designer">
-             <% allDesigners.forEach((oneDesigner)=>{ %>
-                <option value="<%= oneDesigner._id %>"> <%= oneDesigner.brandName %> </option>
-            <% }) %>
-        </select>
-        
-        <br><br>
+    <p><b>Brand:</b> <%= user.brandName %></p>
 
+    <form action="/jewelry/new" method="post">
+    
         <label for="name">Item Name</label>
         <input type="text" name="name">
         <br><br>

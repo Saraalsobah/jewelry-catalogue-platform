@@ -9,8 +9,7 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/new', isSignedIn, async(req,res)=>{
-    const allDesigners = await User.find()
-    res.render('jewelryPiece/create-piece.ejs', {allDesigners:allDesigners})
+    res.render('jewelryPiece/create-piece.ejs')
 })
 
 router.post('/new', isSignedIn, async(req,res)=>{
