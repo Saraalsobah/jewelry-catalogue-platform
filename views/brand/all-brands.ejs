@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Designers</title>
+</head>
+<body>
+    <h1>Our Designers</h1>
+
+    <% allDesigners.forEach((designer) => { %>
+        <a href="/brand/<%= designer._id %>">
+            <h3><%= designer.brandName %></h3>
+        </a>
+    <% }) %>
+
+</body>
+</html>

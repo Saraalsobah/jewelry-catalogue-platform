@@ -7,6 +7,7 @@ const morgan = require('morgan')
 const authController = require("./controllers/auth.js");
 const indexController = require("./controllers/index.routes.js");
 const jewelryPieceRoutes = require("./controllers/jewelryPiece.routes.js")
+const brandRoutes = require("./controllers/brand.routes.js")
 const session = require('express-session');
 const isSignedIn = require("./middleware/is-signed-in.js");
 const passUserToView = require("./middleware/pass-user-to-view.js");
@@ -43,6 +44,7 @@ connectToDB()
 app.use('/auth',authController)
 app.use('/',indexController)
 app.use('/jewelry',jewelryPieceRoutes)
+app.use('/brands', brandRoutes)
 
 // PROTECTED ROUTES:
 app.use(isSignedIn)
