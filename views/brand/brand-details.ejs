@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>oneDesigner.brandName</title>
 </head>
 <body>
     <h1><%= oneDesigner.brandName %></h1>
 
-<p><%= oneDesigner.description %></p>
+    <p><%= oneDesigner.about %></p>
 
-<h2>Jewelry by this brand</h2>
+    <h2>Jewelry by this brand</h2>
+    <p><%= brandPieces.length %> pieces available</p>
 
-<% brandPieces.forEach((piece) => { %>
-  <a href="/jewelry/<%= piece._id %>">
-    <h4><%= piece.name %></h4>
-    <img src="<%= piece.imageUrl %>">
-  </a>
-<% }) %>
+
+    <% brandPieces.forEach((piece) => { %>
+    <a href="/jewelry/<%= piece._id %>">
+        <h4><%= piece.name %></h4>
+        <img src="<%= piece.imageUrl %>">
+    </a>
+    <% }) %>
 </body>
 </html>

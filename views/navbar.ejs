@@ -1,12 +1,14 @@
 <div>
+  <a href="/"><img src="/images/logo.png" alt="Pearl Vault logo"></a>
+  <a href="/jewelry">All Jewelry</a>
+  <a href="/brands">Browse Brands</a>
+
   <% if (user) { %>
-    <p>Welcome <%= user.brandName %></p>
+    <span>Welcome, <%= user.brandName %></span>
     <a href="/jewelry/new">Add Jewelry</a>
-    <a href="/jewelry">All Jewelry</a>
     <a href="/auth/sign-out">Logout</a>
   <% } else { %>
     <a href="/auth/sign-up">Sign up</a>
     <a href="/auth/sign-in">Login</a>
-    <a href="/jewelry">All Jewelry</a>
   <% } %>
 </div>

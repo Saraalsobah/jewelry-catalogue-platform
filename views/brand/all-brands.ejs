@@ -7,7 +7,8 @@
 </head>
 <body>
     <h1>Our Designers</h1>
-
+    <p><%= allDesigners.length %> local brands available</p>
+    
     <% allDesigners.forEach((designer) => { %>
         <a href="/brands/<%= designer._id %>">
             <h3><%= designer.brandName %></h3>
