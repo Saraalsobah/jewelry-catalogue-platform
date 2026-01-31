@@ -3,24 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>oneDesigner.brandName</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <title><%= oneDesigner.brandName %></title>
 </head>
 <body>
     <%- include('../navbar') %>
 
-    <h1><%= oneDesigner.brandName %></h1>
+    <header class="brand-profile-header">
+        <img src="<%= oneDesigner.logoUrl %>" alt="<%= oneDesigner.brandName %>" class="brand-profile-logo">
+        <h1><%= oneDesigner.brandName %></h1>
+        <p class="brand-bio"><%= oneDesigner.about %></p>
+    </header>
 
-    <p><%= oneDesigner.about %></p>
+    <hr class="hr">
 
-    <h2>Jewelry by this brand</h2>
-    <p><%= brandPieces.length %> pieces available</p>
+    <div class="collection-items">
+        <h2>Jewelry by this brand</h2>
+        <p><%= brandPieces.length %> pieces available</p>
+    </div>
 
-
-    <% brandPieces.forEach((piece) => { %>
-    <a href="/jewelry/<%= piece._id %>">
-        <h4><%= piece.name %></h4>
-        <img src="<%= piece.imageUrl %>">
-    </a>
-    <% }) %>
+    <div class="catalogue">
+        <% brandPieces.forEach((piece) => { %>
+            <div class="jewelry">
+                <a href="/jewelry/<%= piece._id %>">
+                    <img src="<%= piece.imageUrl %>" alt="<%= piece.name %>">
+                </a>
+                
+                <h3><%= piece.name %></h3>
+                <p class="price">BHD <%= piece.price %></p>
+                
+                <a href="/jewelry/<%= piece._id %>" class="view-details">View details</a>
+            </div>
+        <% }) %>
+    </div>
 </body>
 </html>

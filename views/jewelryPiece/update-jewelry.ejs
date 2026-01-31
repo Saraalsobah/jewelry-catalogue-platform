@@ -3,42 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Update Jewelry Item</title>
 </head>
 <body>
     <%- include('../navbar') %>
 
-    <h1>Update <%= onePiece.name %></h1>
-    <form action="/jewelry/update/<%= onePiece._id %>" method="post">
-        <p><b>Brand:</b> <%= user.brandName %></p>
+    <section>
+        <h1>Update <%= onePiece.name %></h1>
         
-        <br><br>
+        <form action="/jewelry/update/<%= onePiece._id %>" method="post">
+            <p><b>Brand:</b> <%= user.brandName %></p>
+            
+            <label for="name">Item Name</label>
+            <input type="text" name="name" id="name" value="<%= onePiece.name %>">
 
-        <label for="name">Item Name</label>
-        <input type="text" name="name" value="<%= onePiece.name %>">
-        <br><br>
+            <label for="category">Category</label>
+            <input type="text" name="category" id="category" value="<%= onePiece.category %>">
 
-        <label for="category">Category</label>
-        <input type="text" name="category" value="<%= onePiece.category %>">
-        <br><br>
+            <label for="description">Description</label>
+            <textarea name="description" id="description" rows="4"><%= onePiece.description %></textarea>
 
-        <label for="description">Description</label>
-        <input type="text" name="description" value="<%= onePiece.description %>">
-        <br><br>
+            <label for="material">Material</label>
+            <input type="text" name="material" id="material" value="<%= onePiece.material %>">
 
-        <label for="material">Material</label>
-        <input type="text" name="material" value="<%= onePiece.material %>">
-        <br><br>
+            <label for="price">Price (BHD)</label>
+            <input type="number" name="price" id="price" value="<%= onePiece.price %>">
+            
+            <label for="imageUrl">Image URL</label>
+            <input type="text" name="imageUrl" id="imageUrl" value="<%= onePiece.imageUrl %>">
 
-        <label for="price">Price</label>
-        <input type="number" name="price" value="<%= onePiece.price %>">
-        <br><br>
-        
-        <label for="imageUrl">Image URL</label>
-        <input type="text" name="imageUrl" value="<%= onePiece.imageUrl %>">
-        <br><br>
-
-        <button>Update</button>
-    </form>
+            <button type="submit">Update Piece</button>
+        </form>
+    </section>
 </body>
 </html>

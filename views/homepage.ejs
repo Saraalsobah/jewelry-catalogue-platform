@@ -8,28 +8,37 @@
 </head>
 <body>
     <%- include('navbar') %>
-    <h1>Pearl Vault</h1>
-    <h3>Browse through the catalogue and discover the beauty of handcrafted pearls from Bahrain's finest local designers.</h3>
-    <a href="/jewelry">Explore Jewelry</a>
-    <section>
-        <h4>About Pearl Vault</h4>
-        <p>Inspired by the rich pearling history of our island, this platform brings Bahrain's local jewelry brands together in a single space where designers can share their work and visitors can find unique pearl pieces.</p>
-    </section>
 
-    <% if(!user) {%>
+    <header class="homepage-header">
+        <div class="header-text">
+            <h1>Pearl Vault</h1>
+            <h3>Discover handcrafted pearls from Bahrain's finest local designers.</h3>
+            <a href="/jewelry" class="homepage-button">Explore Jewelry</a>
+        </div>
+    </header>
+
+    <div class="homepage-content">
         <section>
-            <h4>For Designers</h4>
-            <p>Are you a local brand or designer? Create an account to list your jewelry pieces in our catalogue.</p>
-            <a href="/auth/sign-up">Create an Account</a>
+            <h4>About Pearl Vault</h4>
+            <p>Inspired by the rich pearling history of our island, this platform brings Bahrain's local jewelry brands together in a single space.</p>
         </section>
-    <% } else {%>
-        <section>
-        <h4>Welcome, <%= user.brandName %></h4>
-        <p>You can add new pieces to the vault or manage your existing collection below.</p>
-        <a href="/jewelry/new">Add New Jewelry</a>
-        <a href="/jewelry">Manage My Pieces</a>
-        </section>
-    <% } %>
-    
+
+        <% if(!user) {%>
+            <section>
+                <h4>For Designers</h4>
+                <p>Are you a local brand? Create an account to list your jewelry pieces in our catalogue.</p>
+                <a href="/auth/sign-up" class="homepage-button">Create an Account</a>
+            </section>
+        <% } else {%>
+            <section>
+                <h4>Welcome, <%= user.brandName %></h4>
+                <p>Manage your existing collection or share new pieces below.</p>
+                <div class="admin-controls">
+                    <a href="/jewelry/new" class="homepage-button">Add New Piece</a>
+                    <a href="/brands/<%= user._id %>" class="homepage-button">View Profile</a>
+                </div>
+            </section>
+        <% } %>
+    </div>
 </body>
 </html>

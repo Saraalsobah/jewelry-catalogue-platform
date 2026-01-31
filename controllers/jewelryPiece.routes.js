@@ -14,9 +14,8 @@ router.get('/new', isSignedIn, async(req,res)=>{
 
 router.post('/new', isSignedIn, async(req,res)=>{
     req.body.designer = req.session.user._id
-    createdPiece = await JewelryPiece.create(req.body)
-    res.redirect('/jewelry')
-})
+    const createdPiece = await JewelryPiece.create(req.body)
+    res.redirect(`/brands/${req.session.user._id}`)})
 
 router.get('/:id', async (req, res) => {
     const onePiece = await JewelryPiece.findById(req.params.id).populate('designer')
@@ -42,7 +41,7 @@ router.post('/update/:id', isSignedIn, async (req, res) => {
     }
 
     const updatedPiece = await JewelryPiece.findByIdAndUpdate(req.params.id, req.body)
-    res.redirect('/jewelry')
+    res.redirect(`/brands/${req.session.user._id}`)
 })
 
 
@@ -53,7 +52,7 @@ router.post('/delete/:id', isSignedIn, async(req,res)=>{
         return res.send('Cannot delete Pieces that are not yours')
     }
     await JewelryPiece.findByIdAndDelete(req.params.id)
-    res.redirect('/jewelry')    
+    res.redirect(`/brands/${req.session.user._id}`)   
 })
 
 module.exports = router;

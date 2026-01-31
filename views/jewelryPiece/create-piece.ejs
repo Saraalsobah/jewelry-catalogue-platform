@@ -3,40 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Create New</title>
 </head>
 <body>
     <%- include('../navbar') %>
-    <h1>Create a new Jewelry Piece</h1>
-    <p><b>Brand:</b> <%= user.brandName %></p>
-
-    <form action="/jewelry/new" method="post">
     
-        <label for="name">Item Name</label>
-        <input type="text" name="name">
-        <br><br>
-
-        <label for="category">Category</label>
-        <input type="text" name="category">
-        <br><br>
-
-        <label for="description">Description</label>
-        <input type="text" name="description">
-        <br><br>
-
-        <label for="material">Material</label>
-        <input type="text" name="material">
-        <br><br>
-
-        <label for="price">Price</label>
-        <input type="number" name="price">
-        <br><br>
+    <section>
+        <h1>Create a new Jewelry Piece</h1>
         
-        <label for="imageUrl">Image URL</label>
-        <input type="text" name="imageUrl">
-        <br><br>
+        <p><b>Brand:</b> <%= user.brandName %></p>
 
-        <button>Create</button>
-    </form>
+        <form action="/jewelry/new" method="post">
+        
+            <label for="name">Item Name</label>
+            <input type="text" name="name" id="name" required>
+
+            <label for="category">Category</label>
+            <input type="text" name="category" id="category">
+
+            <label for="description">Description</label>
+            <textarea name="description" id="description" rows="4"></textarea>
+
+            <label for="material">Material</label>
+            <input type="text" name="material" id="material">
+
+            <label for="price">Price (BHD)</label>
+            <input type="number" name="price" id="price">
+            
+            <label for="imageUrl">Image URL</label>
+            <input type="text" name="imageUrl" id="imageUrl">
+
+            <button type="submit">Create Piece</button>
+        </form>
+    </section>
 </body>
 </html>

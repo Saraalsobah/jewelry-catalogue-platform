@@ -12,6 +12,7 @@
     <% if (user) { %>
       <span class="welcome">Welcome, <%= user.brandName %></span>
       <a href="/jewelry/new">Add Jewelry</a>
+      <a href="/brands/<%= user._id %>">Manage Pieces</a>
       <a href="/auth/sign-out">Logout</a>
     <% } else { %>
       <a href="/auth/sign-up">Sign up</a>

@@ -3,37 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css">
     <title>Sign Up</title>
   </head>
   <body>
     <%- include('../navbar') %>
-    <h1>Create a new account!</h1>
-    <form action="/auth/sign-up" method="post">
-      <label for="email">Email:</label>
-      <input type="text" name="email" id="email" />
-      <br> <br>
 
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password" />
-      <br> <br>
+    <section>
+      <h1>Create an account</h1>
+      <form action="/auth/sign-up" method="post">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" required/>
 
-      <label for="confirmPassword">Confirm Password:</label>
-      <input type="password" name="confirmPassword" id="confirmPassword" />
-      <br> <br>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required/>
 
-      <label for="brandName">Brand Name:</label>
-      <input type="text" name="brandName" id="brandName" />
-      <br> <br>
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" name="confirmPassword" id="confirmPassword" required/>
 
-      <label for="about">Company Bio:</label>
-      <input type="text" name="about" id="about" />
-      <br> <br>
+        <label for="brandName">Brand Name</label>
+        <input type="text" name="brandName" id="brandName" required/>
 
-      <label for="logoUrl">Logo URL:</label>
-      <input type="text" name="logoUrl" id="logoUrl" />
-      <br> <br>
+        <label for="about">About the Brand</label>
+        <textarea name="about" id="about" rows="3"></textarea>
 
-      <button type="submit">Sign up</button>
-    </form>
+        <label for="logoUrl">Logo URL</label>
+        <input type="text" name="logoUrl" id="logoUrl" />
+
+        <button type="submit">Sign up</button>
+      </form>
+      <p class="form-footer">
+        Already have an account? <a href="/auth/sign-in">Sign in</a>
+      </p>
+    </section>
   </body>
 </html>

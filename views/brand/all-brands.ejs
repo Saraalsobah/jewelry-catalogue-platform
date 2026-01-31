@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Our Designers</title>
 </head>
 <body>
@@ -11,11 +12,19 @@
     <h1>Our Designers</h1>
     <p><%= allDesigners.length %> local brands available</p>
 
-    <% allDesigners.forEach((designer) => { %>
-        <a href="/brands/<%= designer._id %>">
-            <h3><%= designer.brandName %></h3>
-        </a>
-    <% }) %>
+    <div class="all-brands">
+        <% allDesigners.forEach((designer) => { %>
+            <div class="one-brand">
+                <a href="/brands/<%= designer._id %>">
+                    <img src="<%= designer.logoUrl %>" alt="<%= designer.brandName %>" class="brand-logo">
 
+                    <h3><%= designer.brandName %></h3>
+                </a>
+                <p class="brand-bio"><%= designer.about %></p>
+
+                <a href="/brands/<%= designer._id %>" class="view-profile">View Collection</a>
+            </div>
+        <% }) %>
+    </div>
 </body>
 </html>
