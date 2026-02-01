@@ -1,5 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Unna:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+body {
+ background-color: #faf8f5;
+ color: #1a1a1a;
+ font-family: 'Lora', serif;
+ line-height: 1.5;
+ padding: 0 5.5%;
+ -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+ font-family: 'Playfair Display', serif;
+ font-weight: 700;
+ text-transform: capitalize;
+ letter-spacing: 1px;
+ text-align: center;
+ margin-bottom: 3.5rem;
+}
+
+.logo {
+ font-family: 'Playfair Display', serif;
+ font-weight: 700;
+ text-transform: capitalize;
+ letter-spacing: 1px;
+}
+
+h2, h3, h4, .homepage-button, .view-profile, .view-details, label, button {
+ font-family: 'Unna', serif;
+ text-transform: uppercase;
+ letter-spacing: 2px;
+}
+
+a {
+ color: #b38b1a;
+ text-decoration: none;
+ transition: 0.3s ease;
+}
+
+a:hover {
+ opacity: 0.7;
+}
+
+.navbar {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 1rem 0;
+ border-bottom: 1px solid #e7dac6;
+ margin-bottom: 1.5rem;
+}
+
+.left-navbar, .right-navbar {
+ display: flex;
+ gap: 25px;
+ align-items: center;
+}
+
+.logo img {
+ height: 150px;
+ width: auto;
+}
+
+.homepage-header {
+  height: 65vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  margin-left: -5.8%; 
+  margin-right: -5.8%;
+  width: auto;
+  
+  margin-top: 0;
+  margin-bottom: 3rem;
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;      
+}
+
+.header-text {
+ position: relative;
+ z-index: 1;
+ text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.header-text h3 {
+ color: #ffffff;
+ text-transform: none;
+ margin-bottom: 2rem;
+ font-size: 1.25rem;
+}
+
+.homepage-button {
+ background-color: #b38b1a;
+ color: #ffffff;
+ padding: 0.75rem 2rem; 
+ display: inline-block;
+ font-size: 0.9rem;
+ border: 1px solid #b38b1a;
+ transition: all 0.3s ease;
+}
+
+.homepage-content .homepage-button {
+    background-color: transparent;
+    color: #b38b1a;
+    border: 2px solid #b38b1a;
+    padding: 0.75rem 2rem; 
+}
+
+.homepage-content .homepage-button:hover {
+    background-color: #b38b1a;
+    color: #ffffff;
+    transform: none;
+}
+
+.homepage-content section {
+ background-color: #ffffff;
+ padding: 2.5rem;
+ margin: 2rem 0;
+ border: 1px solid #e7dac6;
+ text-align: center;
+ position: relative;
+}
+
+.homepage-content section::before {
+ content: "✧";
+ position: absolute;
+ top: -12px;
+ left: 50%;
+ transform: translateX(-50%);
+ background-color: #faf8f5;
+ color: #b38b1a;
+ padding: 0 15px;
+ font-size: 1.2rem;
+}
+
+.catalogue, .all-brands {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 2.5rem;
+ justify-content: flex-start;
+ margin-top: 2rem;
+}
+
+.jewelry, .one-brand {
+ width: 30%;
+ background-color: #ffffff;
+ border: 1px solid #e7dac6;
+ padding: 1.5rem;
+ text-align: center;
+ display: flex;
+ flex-direction: column;
+ margin-bottom: 2rem;
+}
+
+.jewelry img, .brand-logo {
+ width: 100%;
+ aspect-ratio: 1/1;
+ object-fit: cover;
+ margin-bottom: 1rem;
+}
+
+.brand-logo {
+ border-radius: 50%;
+ width: 120px;
+ height: 120px;
+ margin: 0 auto 1rem;
+}
+
+.brand-bio{
+  padding: 1.75rem 1rem;
+}
+
+form {
+ display: flex;
+ flex-direction: column;
+ max-width: 500px;
+ margin: 0 auto 4rem auto;
+ background: #ffffff;
+ padding: 2.5rem;
+ border: 1px solid #e7dac6;
+}
+
+form label {
+ display: block;
+ font-size: 0.85rem;
+ text-transform: uppercase;
+ color: #1a1a1a;
+ margin-bottom: 0.4rem;
+ letter-spacing: 1.5px;
+}
+
+input, textarea {
+ padding: 0.75rem;
+ margin-bottom: 2rem;
+ border: 1px solid #e7dac6;
+ background: #ffffff;
+ font-family: 'Lora', serif;
+ font-size: 1rem;
+ width: 100%;
+}
+
+.form-footer {
+  text-align: center;
+  margin-top: 2rem;
+  font-family: 'Lora', serif;
+  font-size: 0.9rem;
+  color: #888;
+  letter-spacing: 0.5px;
+}
+
+.form-footer a {
+  color: #1a1a1a;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: #e7dac6;
+  margin-left: 5px;
+}
+
+.form-footer a:hover {
+  text-decoration-color: #b38b1a;
+  opacity: 1;
+}
+
+button, .delete {
+ padding: 0.75rem 2rem;
+ border: 1px solid #b38b1a;
+ cursor: pointer;
+ text-transform: uppercase;
+ font-size: 0.9rem;
+ transition: all 0.3s ease;
+ font-family: 'Unna', serif;
+ letter-spacing: 2px;
+}
+
+button {
+ background-color: #b38b1a;
+ color: #ffffff;
+}
+
+.delete {
+ background-color: #b38b1a;
+ color: #ffffff;
+ text-decoration: none;
+ display: inline-block;
+ text-align: center;
+}
+
+button:hover, .delete:hover {
+ background-color: #9a7716;
+ opacity: 1;
+}
+
+.admin-controls {
+ display: flex;
+ gap: 1rem;
+ margin-top: 3rem;
+ padding-top: 2rem;
+ border-top: 1px solid #e7dac6;
+ justify-content: center;
+}
+
+.admin-controls a,
+.admin-controls button {
+ flex: 1;
+ max-width: 200px;
+ padding: 0.75rem 2rem;
+ background-color: #b38b1a;
+ color: #ffffff;
+ border: 1px solid #b38b1a;
+ font-family: 'Unna', serif;
+ text-transform: uppercase;
+ letter-spacing: 2px;
+ font-size: 0.9rem;
+ text-align: center;
+ text-decoration: none;
+ cursor: pointer;
+ transition: 0.3s ease;
+ display: inline-block;
+}
+
+.admin-controls a:hover, 
+.admin-controls button:hover {
+ background-color: #9a7716;
+ border-color: #9a7716;
+ opacity: 1;
+}
+
+.piece-details {
+ display: flex;
+ gap: 3rem;
+ max-width: 1000px;
+ margin: 0 auto;
+}
+
+.piece-image img {
+ width: 450px;
+ height: auto;
+ object-fit: cover;
+}
+
+.piece-info label {
+ display: block;
+ font-size: 0.75rem;
+ text-transform: uppercase;
+ color: #b38b1a;
+ margin-top: 1.5rem;
+}
+
+.hr {
+ border: 0;
+ border-top: 1px solid #e7dac6;
+ margin: 3rem 0;
 }

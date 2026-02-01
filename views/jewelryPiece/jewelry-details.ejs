@@ -28,12 +28,22 @@
             <p><%= onePiece.material %></p>
 
             <% if (user && onePiece.designer && user._id === onePiece.designer._id.toString()) { %>
-                <div class="admin-controls">
-                    <a href="/jewelry/update/<%= onePiece._id %>">Update Item</a>
-                    <form action="/jewelry/delete/<%= onePiece._id %>" method="post">
-                        <button type="submit">Delete</button>
-                    </form>
-                </div>
+                <div class="admin-controls" style="display: flex; gap: 1.5rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #e7dac6; justify-content: flex-start; align-items: center;">
+    
+    <a href="/jewelry/update/<%= onePiece._id %>" 
+       style="width: 180px; height: 48px; display: flex; align-items: center; justify-content: center; background-color: #b38b1a; color: #ffffff; border: 1px solid #b38b1a; font-family: 'Unna', serif; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; text-decoration: none; transition: 0.3s ease;">
+       Update Item
+    </a>
+
+    <form action="/jewelry/delete/<%= onePiece._id %>" method="post" 
+          style="margin: 0; padding: 0; background: none; border: none; display: inline;">
+        
+        <button type="submit" class="delete" 
+                style="width: 180px; height: 48px; display: flex; align-items: center; justify-content: center; background-color: #b38b1a; color: #ffffff; border: 1px solid #b38b1a; font-family: 'Unna', serif; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; cursor: pointer; transition: 0.3s ease;">
+                Delete
+        </button>
+    </form>
+</div>
             <% } %>
         </div>
     </div>

@@ -10,13 +10,13 @@
     <%- include('../navbar') %>
 
     <h1>Our Designers</h1>
-    <p><%= allDesigners.length %> local brands available</p>
+    <p style="text-align: center;"><%= allDesigners.length %> local brands available</p>
 
     <div class="all-brands">
         <% allDesigners.forEach((designer) => { %>
             <div class="one-brand">
                 <a href="/brands/<%= designer._id %>">
-                    <img src="<%= designer.logoUrl %>" alt="<%= designer.brandName %>" class="brand-logo">
+                    <img src="<%= designer.logoUrl %>" alt="<%= designer.brandName %>" class="brand-logo" >
 
                     <h3><%= designer.brandName %></h3>
                 </a>
